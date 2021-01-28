@@ -42,18 +42,20 @@
              <th>Bonos adicionales</th>
              <th colspan="2">Accion</th>
            </tr>
-           <tr>
-             <td class="nombre">Kevin del rio</td>
-             <td>988987646</td>
-             <td class="nombre">12345678-9</td>
-             <td>0</td>
-             <td>0</td>
-             <td>0</td>
-             <td>0</td>
-             <td>0</td>
-             <td><a href="./eliminar.html" onclick="return confirm('estas seguro de eliminarlo?');">Eliminar</a></td>
-             <td><a href="./modificar.html">Modificar</a></td>
-           </tr>
+            {% for a in empleados %}
+
+            <tr>
+              <td>{{ a.nombre }}</td>
+              <td>{{ a.apellido }}</td>
+              <td>{{ a.rut }}</td>
+              <td>{{ a.sbruto }}</td>
+              <td>{{ a.prevision }}</td>
+              <td>{{ a.imposiciones }}</td>
+              <td>{{ a.btransporte }}</td>
+              <td>{{ a.badc }}</td>
+            </tr>
+
+            {% endfor %}
            <tr>
              <td>Diego Chacana</td>
              <td>949484814</td>
