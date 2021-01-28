@@ -1,30 +1,29 @@
-<!DOCTYPE html>
-<html lang="es">
-    {% load static %}
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="{% static 'usuario/css/estilos.css'%}">
-        <link rel="stylesheet" href="./css/otros_estilos.css">        
-        <title>Login</title>
+{%  extends 'usuario/plantilla.html'  %}
 
-    </head>
-    <body>
-        <h1>Acceso a Aplicación</h1>
-        <p>Este es el proyecto miSitio</p>
-		{% csrf_token %}
-        <form method="POST">
-            <div>
-                <label>Usuario</label>
-                <input type="text" name="username" placeholder="Nombre de usaurio">
-            </div>
-            <div>
-                <label>Contraseña</label>
-                <input type="password" name="password" placeholder="Clave de usaurio">
-            </div>
-            <button type="submit">Iniciar Sesión</button>
-        </form>
+{% load static %}
 
+{% block contenido2 %}
+
+<title>Lista Empleados</title>
+
+  {% endblock contenido2 %}
+  
+ 
+  {% block contenido1 %}
+  <body style="background-image: url({% static 'usuario/imagen/fondo-login.jpg' %});background-size: 100%;">
+        <section class="formulario-login">
+            <form class="form-group" id="loginform" method="POST" action="{% url 'lista' %}">
+                {% csrf_token %}
+                    <h4>Login</h4>
+                    <label for="correo">Correo</label>
+                    <input class="controles" id="correo" name="correo" placeholder="Ingrese su Correo">
+                    <br><br>
+                    <label for="contraseña">Contraseña</label>
+                    <input class="controles" type="password" name="contraseña" id="contraseña" minlength="6" placeholder="Ingrese su Contraseña">
+                    <p>¿No tienes Cuenta?<a href="./Registro.html"> Registrarse</a></p>
+                    <input class="botones" id="ingresar" type="submit" value="Ingresar">
+            </form>
+        </section>
     </body>
-</html>
+    {% endblock contenido1 %}
+    
