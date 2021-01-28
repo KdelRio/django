@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+    {% load static %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="{% static 'usuario/css/estilos.css'%}">
+        <link rel="stylesheet" href="./css/otros_estilos.css">        
+        <title>Login</title>
+
+    </head>
+    <body>
+        <h1>Acceso a Aplicación</h1>
+        <p>Este es el proyecto miSitio</p>
+		{% csrf_token %}
+        <form method="POST">
+            <div>
+                <label>Usuario</label>
+                <input type="text" name="username" placeholder="Nombre de usaurio">
+            </div>
+            <div>
+                <label>Contraseña</label>
+                <input type="password" name="password" placeholder="Clave de usaurio">
+            </div>
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+
+    </body>
+</html>

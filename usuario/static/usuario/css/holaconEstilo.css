@@ -1,0 +1,14 @@
+body{
+    font-size: 20px;
+    background-color: rgb(199, 199, 41);
+}
+#divderecha{
+    text-align: right;
+    background-color: crimson;
+}
+.grande{
+    font-size: 32px;
+}
+.tipoArial{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
