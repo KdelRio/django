@@ -11,6 +11,8 @@
   
   {% block contenido1 %}
   <body style="background-image: url({% static 'usuario/imagen/fondo-login.jpg' %});background-size: 100%;">
+    <form id="addform" method="POST" action="">
+      {% csrf_token %}
     <div id="wrapper" style="margin-top: 70px;">
       <div id="first">
          <div class="vertical-menu">
@@ -30,8 +32,8 @@
                <input type="text" id="text1" class="filtro" placeholder="Ingrese aqui">
                <button class="botones">Filtrar</button>
          </div>
-         <table>
-         <tr>
+        <table>
+          <tr>
              <th>Nombre</th>
              <th>Apellido</th>
              <th>Rut</th>
@@ -41,11 +43,8 @@
              <th>Imposiciones</th>
              <th>Bono transporte</th>
              <th>Bonos adicionales</th>
-             <th colspan="2">Accion</th>
            </tr>
-           <form id="addform" method="POST" action="">
-            {% csrf_token %}
-            <tr>
+           <tr>
               <td><input class="agregar" id="nombre" name="nombre"></td>
               <td><input class="agregar" id="apellido" name="apellido"></td>
               <td><input class="agregar" name="rut" id="rut"></td>
@@ -55,11 +54,9 @@
               <td><input class="agregar" type="number" name="imposiciones" id="imposiciones"></td>
               <td><input class="agregar" type="number" name="btransporte" id="btransporte"></td>
               <td><input class="agregar" type="number" name="badc" id="badc"></td>
-              <td><input class="botonadd" id="ingresar" type="submit" value="Confirmar"></td>
-              <td></td>
-          </tr>
-        </form>
+           </tr>
        </table>
+       <a type="submit" class="botones" href="{% url 'agregar' %}">Agregar</a>
+      </form>
        <br><br>
-        </body>
         {% endblock contenido1 %}

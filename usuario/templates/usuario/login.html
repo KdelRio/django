@@ -16,10 +16,10 @@
                 {% csrf_token %}
                     <h4>Login</h4>
                     <label for="correo">Correo</label>
-                    <input class="controles" id="correo" name="correo" placeholder="Ingrese su Correo">
+                    <input class="controles" id="correoU" name="correoU" placeholder="Ingrese su Correo">
                     <br><br>
                     <label for="contraseña">Contraseña</label>
-                    <input class="controles" type="password" name="contraseña" id="contraseña" minlength="6" placeholder="Ingrese su Contraseña">
+                    <input class="controles" type="password" name="contraseñaU" id="contraseñaU" minlength="6" placeholder="Ingrese su Contraseña">
                     <p>¿No tienes Cuenta?<a href="{% url 'registro' %}"> Registrarse</a></p>
                     <input class="botones" id="ingresar" type="submit" value="Ingresar">
             </form>

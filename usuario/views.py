@@ -9,8 +9,6 @@ def lista(request):
 
     empleado = Empleado.objects.all()
 
-    cantidad = empleado.count
-
     return render(request, 'usuario/lista_empleados.html', {
         'empleado':empleado
     })
@@ -33,20 +31,21 @@ def registro(request):
 def agregar_empleado(request):
 
     if request.POST:
-        empleado = Empleado.create()
-        empleado.nombre = request.POST.get('nombre')
-        empleado.apellido = request.POST.get('apellido')
-        empleado.rut = request.POST.get('rut')
-        empleado.sbruto = request.POST.get('sbruto')
-        empleado.prevision = request.POST.get('prevision')
-        empleado.imposiciones = request.POST.get('imposiciones')
-        empleado.btransporte = request.POST.get('btransporte')
+        empleado = Empleado()
+        empleado.nombre = request.POST.get('nombre'),
+        empleado.apellido = request.POST.get('apellido'),
+        empleado.rut = request.POST.get('rut'),
+        empleado.telefono = request.POST.get('telefono'),
+        empleado.sbruto = request.POST.get('sbruto'),
+        empleado.prevision = request.POST.get('prevision'),
+        empleado.imposiciones = request.POST.get('imposiciones'),
+        empleado.btransporte = request.POST.get('btransporte'),
         empleado.badc = request.POST.get('badc')
-
         try:
             empleado.save()
         except:
             mensaje = 'no se pudo agregar empleado'   
+        return redirect('lista')
 
     return render(request, 'usuario/agregar.html', {})
 
