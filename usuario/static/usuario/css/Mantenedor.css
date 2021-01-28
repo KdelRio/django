@@ -10,7 +10,7 @@ table {
     border-collapse: collapse;
     border-radius: 8px;
     overflow: hidden;
-    width: 95%;
+    width: 100%;
     box-shadow: 0 0 3px 0 rgba(255, 255, 255, 0.315);
     margin-left: 10px;
 }
@@ -31,7 +31,7 @@ td{
 th{
     border: none;
     text-align: left;
-    padding: 8px;
+    padding: 10px;
     background-color: rgba(255, 255, 255, 0.349);
     color: white;
 }

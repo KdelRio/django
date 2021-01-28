@@ -1,0 +1,65 @@
+{%  extends 'usuario/plantilla.html'  %}
+
+{% load static %}
+
+{% block contenido2 %}
+
+<title>Agregar Empleados</title>
+
+  {% endblock contenido2 %}
+  
+  
+  {% block contenido1 %}
+  <body style="background-image: url({% static 'usuario/imagen/fondo-login.jpg' %});background-size: 100%;">
+    <div id="wrapper" style="margin-top: 70px;">
+      <div id="first">
+         <div class="vertical-menu">
+           <a href="{% url 'perfil' %}">Perfil</a>
+           <a href="{% url 'lista' %}" class="active">Administrar Empleados</a>
+           <a href="{% url 'crear_usuario' %}">Crear usuario</a>
+           <a href="{% url 'inicio' %}">Cerrar Sesion</a>
+         </div>
+      </div>
+         <div class="container">
+           <div>
+               <select name="select" class="filtro">
+                 <option selected value="value1">Nombre</option>
+                 <option value="value2">Telefono</option>
+                 <option value="value3">Rut</option> 
+               </select> 
+               <input type="text" id="text1" class="filtro" placeholder="Ingrese aqui">
+               <button class="botones">Filtrar</button>
+         </div>
+         <table>
+         <tr>
+             <th>Nombre</th>
+             <th>Apellido</th>
+             <th>Rut</th>
+             <th>Telefono</th>
+             <th>Sueldo bruto</th>
+             <th>Prevision</th>
+             <th>Imposiciones</th>
+             <th>Bono transporte</th>
+             <th>Bonos adicionales</th>
+             <th colspan="2">Accion</th>
+           </tr>
+           <form id="addform" method="POST" action="">
+            {% csrf_token %}
+            <tr>
+              <td><input class="agregar" id="nombre" name="nombre"></td>
+              <td><input class="agregar" id="apellido" name="apellido"></td>
+              <td><input class="agregar" name="rut" id="rut"></td>
+              <td><input class="agregar" type="number" name="telefono" id="telefono"></td>
+              <td><input class="agregar" type="number" name="sbruto" id="sbruto"></td>
+              <td><input class="agregar" type="number" name="prevision" id="prevision"></td>
+              <td><input class="agregar" type="number" name="imposiciones" id="imposiciones"></td>
+              <td><input class="agregar" type="number" name="btransporte" id="btransporte"></td>
+              <td><input class="agregar" type="number" name="badc" id="badc"></td>
+              <td><input class="botonadd" id="ingresar" type="submit" value="Confirmar"></td>
+              <td></td>
+          </tr>
+        </form>
+       </table>
+       <br><br>
+        </body>
+        {% endblock contenido1 %}

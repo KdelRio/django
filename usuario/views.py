@@ -1,14 +1,15 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 from .models import Empleado,Empresa_cliente,Usuario
-from django.db import models
 
 def inicio(request):
     return render(request, 'usuario/inicio.html', {})
 
-
 def lista(request):
 
     empleado = Empleado.objects.all()
+
+    cantidad = empleado.count
 
     return render(request, 'usuario/lista_empleados.html', {
         'empleado':empleado
@@ -23,5 +24,38 @@ def crear_usuario(request):
 def login(request):
     return render(request, 'usuario/login.html', {})
 
+def agregar(request):
+    return render(request, 'usuario/agregar.html', {})
+
 def registro(request):
     return render(request, 'usuario/registro.html', {})
+
+def agregar_empleado(request):
+
+    if request.POST:
+        empleado = Empleado.create()
+        empleado.nombre = request.POST.get('nombre')
+        empleado.apellido = request.POST.get('apellido')
+        empleado.rut = request.POST.get('rut')
+        empleado.sbruto = request.POST.get('sbruto')
+        empleado.prevision = request.POST.get('prevision')
+        empleado.imposiciones = request.POST.get('imposiciones')
+        empleado.btransporte = request.POST.get('btransporte')
+        empleado.badc = request.POST.get('badc')
+
+        try:
+            empleado.save()
+        except:
+            mensaje = 'no se pudo agregar empleado'   
+
+    return render(request, 'usuario/agregar.html', {})
+
+def eliminar_empleado(request,rut):
+
+    empleado = Empleado.objects.get(rut=rut)
+
+    try:
+        empleado.delete()
+    except:
+        mensaje = "No se ha podido eliminar"
+    return redirect('lista')
