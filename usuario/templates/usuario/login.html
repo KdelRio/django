@@ -4,7 +4,7 @@
 
 {% block contenido2 %}
 
-<title>Lista Empleados</title>
+<title>Login</title>
 
   {% endblock contenido2 %}
   
@@ -20,7 +20,7 @@
                     <br><br>
                     <label for="contraseña">Contraseña</label>
                     <input class="controles" type="password" name="contraseña" id="contraseña" minlength="6" placeholder="Ingrese su Contraseña">
-                    <p>¿No tienes Cuenta?<a href="./Registro.html"> Registrarse</a></p>
+                    <p>¿No tienes Cuenta?<a href="{% url 'registro' %}"> Registrarse</a></p>
                     <input class="botones" id="ingresar" type="submit" value="Ingresar">
             </form>
         </section>

@@ -1,14 +1,29 @@
 from django.db import models
 from django.utils import timezone
 
-class Persona(models.Model):
+class Empleado(models.Model):
     rut = models.CharField(max_length=12, primary_key=True)
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
-    edad = models.IntegerField()
-    email = models.EmailField()
-    fecha_creado = models.DateTimeField(blank=True, null=True)
+    telefono = models.IntegerField()
+    sbruto = models.IntegerField()
+    prevision = models.IntegerField()
+    imposiciones = models.IntegerField()
+    btransporte = models.IntegerField()
+    badc = models.IntegerField()
 
-    def creacion(self):
-        self.published_date = timezone.now()
-        self.save()
+class Empresa_cliente(models.Model):
+    rutE = models.CharField(max_length=12, primary_key=True)
+    nombreE = models.CharField(max_length=50)
+    apellidoE = models.CharField(max_length=50)
+    contraseñaE = models.CharField(max_length=50)
+    correoE = models.CharField(max_length=50)
+    telefonoE = models.IntegerField()
+    tipo_cuenta = models.CharField(max_length=50)
+
+class Usuario(models.Model):
+    nombreU = models.CharField(max_length=50)
+    apellidoU = models.CharField(max_length=50)
+    correoU = models.CharField(max_length=12, primary_key=True)
+    contraseñaU = models.CharField(max_length=50)
+    telefonoU = models.IntegerField()

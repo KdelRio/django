@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 def inicio(request):
     return render(request, 'usuario/inicio.html', {})
@@ -13,3 +12,9 @@ def perfil(request):
 
 def crear_usuario(request):
     return render(request, 'usuario/crear_usuario.html', {})
+
+def login(request):
+    return render(request, 'usuario/login.html', {})
+
+def registro(request):
+    return render(request, 'usuario/registro.html', {})

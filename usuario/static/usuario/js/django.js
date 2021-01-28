@@ -32,7 +32,7 @@ $(document).ready(function(){
 	});
 });
 
-$.validator.setDefaults( {
+$.validator.submitHandler( {
     submitHandler: function () {
 	   alert( "Usuario creado con exito!" );
 	   ('#crearusuario').attr('href','./crearusuario2.html');

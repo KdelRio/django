@@ -4,17 +4,25 @@
 
 {% block contenido2 %}
 
-<title>Lista Empleados</title>
+<title>Inicio</title>
 
   {% endblock contenido2 %}
   
   
   {% block contenido1 %}
-  <!--texto inicio  -->
+
   <body style="background-image: url({% static 'usuario/imagen/fondo-login.jpg' %});background-size: 100%;">
     <div style="margin-top: 120px;margin-left: 80px;">
-        <h1>Inicio</h1>
-        <p>Este es el proyecto miSitio</p>
+        <h1>Bienvenido</h1>
+        <section style="width: 80%;">
+            <p>Somos RemRoll una Empresa dedicada a apoyar la gestion de tus empleados y tus administradores, Fundada en el año 2021
+                Remroll se posiciona como una de las mejores soluciones para empresas de distintos rubros,
+                facilitando y mejorando los procesos de cada empresa con un esfuerzo minimo.
+                ¿Que esperas?
+                Mejora hoy tu Empresa con nuestros servicios!
+            </p>
+        </section>
+      <br><br>
         <a class="botones" href="{% url 'InicioSesion' %}">Inicio sesión</a>
     </div>
 
