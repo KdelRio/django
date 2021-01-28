@@ -9,7 +9,7 @@ def lista(request):
 
     empleado = Empleado.objects.all()
 
-    return render(request, 'usuario/lista_empleados.html', {
+    return render(request, 'usuario/lista_empleados.html',{
         'empleado':empleado
     })
 
@@ -28,26 +28,24 @@ def agregar(request):
 def registro(request):
     return render(request, 'usuario/registro.html', {})
 
-def agregar_empleado(request):
+def agregar(request):
 
     if request.POST:
         empleado = Empleado()
-        empleado.nombre = request.POST.get('nombre'),
-        empleado.apellido = request.POST.get('apellido'),
-        empleado.rut = request.POST.get('rut'),
-        empleado.telefono = request.POST.get('telefono'),
-        empleado.sbruto = request.POST.get('sbruto'),
-        empleado.prevision = request.POST.get('prevision'),
-        empleado.imposiciones = request.POST.get('imposiciones'),
-        empleado.btransporte = request.POST.get('btransporte'),
-        empleado.badc = request.POST.get('badc')
-        try:
-            empleado.save()
-        except:
-            mensaje = 'no se pudo agregar empleado'   
-        return redirect('lista')
-
-    return render(request, 'usuario/agregar.html', {})
+        nombre = request.POST.get('nombre'),
+        apellido = request.POST.get('apellido'),
+        rut = request.POST.get('rut'),
+        telefono = request.POST.get('telefono'),
+        sbruto = request.POST.get('sbruto'),
+        prevision = request.POST.get('prevision'),
+        imposiciones = request.POST.get('imposiciones'),
+        btransporte = request.POST.get('btransporte'),
+        badc = request.POST.get('badc')
+    try:
+        empleado.save()
+    except:
+            messages = 'no se pudo crear'
+    return redirect('lista') 
 
 def eliminar_empleado(request,rut):
 

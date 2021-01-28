@@ -11,52 +11,42 @@
   
   {% block contenido1 %}
   <body style="background-image: url({% static 'usuario/imagen/fondo-login.jpg' %});background-size: 100%;">
-    <form id="addform" method="POST" action="">
-      {% csrf_token %}
     <div id="wrapper" style="margin-top: 70px;">
-      <div id="first">
-         <div class="vertical-menu">
-           <a href="{% url 'perfil' %}">Perfil</a>
-           <a href="{% url 'lista' %}" class="active">Administrar Empleados</a>
-           <a href="{% url 'crear_usuario' %}">Crear usuario</a>
-           <a href="{% url 'inicio' %}">Cerrar Sesion</a>
-         </div>
+      <div class="vertical-menu" id="first">
+       <a href="{% url 'perfil' %}">Perfil</a>
+       <a href="{% url 'lista' %}" class="active">Administrar Empleados</a>
+       <a href="{% url 'crear_usuario' %}">Crear usuario</a>
+       <a href="{% url 'inicio' %}">Cerrar Sesion</a>
       </div>
-         <div class="container">
-           <div>
-               <select name="select" class="filtro">
-                 <option selected value="value1">Nombre</option>
-                 <option value="value2">Telefono</option>
-                 <option value="value3">Rut</option> 
-               </select> 
-               <input type="text" id="text1" class="filtro" placeholder="Ingrese aqui">
-               <button class="botones">Filtrar</button>
-         </div>
-        <table>
-          <tr>
-             <th>Nombre</th>
-             <th>Apellido</th>
-             <th>Rut</th>
-             <th>Telefono</th>
-             <th>Sueldo bruto</th>
-             <th>Prevision</th>
-             <th>Imposiciones</th>
-             <th>Bono transporte</th>
-             <th>Bonos adicionales</th>
-           </tr>
-           <tr>
-              <td><input class="agregar" id="nombre" name="nombre"></td>
-              <td><input class="agregar" id="apellido" name="apellido"></td>
-              <td><input class="agregar" name="rut" id="rut"></td>
-              <td><input class="agregar" type="number" name="telefono" id="telefono"></td>
-              <td><input class="agregar" type="number" name="sbruto" id="sbruto"></td>
-              <td><input class="agregar" type="number" name="prevision" id="prevision"></td>
-              <td><input class="agregar" type="number" name="imposiciones" id="imposiciones"></td>
-              <td><input class="agregar" type="number" name="btransporte" id="btransporte"></td>
-              <td><input class="agregar" type="number" name="badc" id="badc"></td>
-           </tr>
-       </table>
-       <a type="submit" class="botones" href="{% url 'agregar' %}">Agregar</a>
-      </form>
-       <br><br>
-        {% endblock contenido1 %}
+      <form action="" method="POST">
+      <div id="second" style="margin-top: 30px;">
+        <label style="width: 10%;" for="">Nombre</label>
+        <input class="agregar" style="width: 100px;" id="nombre" name="nombre">
+        <label style="width: 8%; margin-left: 20px;" for="">Apellido</label>
+        <input class="agregar" style="width: 100px;" id="apellido" name="apellido">
+        <br><br>
+        <label style="width: 10%;" for="">Rut</label>
+        <input class="agregar" style="width: 100px;" id="rut" name="rut">
+        <label style="width: 8%; margin-left: 20px;" for="">Telefono</label>
+        <input class="agregar" style="width: 100px;" id="telefono" name="telefono">
+        <br><br>
+        <label style="width: 10%;" for="">Sueldo bruto</label>
+        <input class="agregar" style="width: 100px;" id="sbruto" name="sbruto">
+        <label style="width: 8%; margin-left: 20px;" for="">Prevision</label>
+        <input class="agregar" style="width: 100px;" id="prevision" name="prevision">
+        <br><br>
+        <label style="width: 10%;" for="">Imposiciones</label>
+        <input class="agregar" style="width: 100px;" id="imposiciones" name="imposiciones">
+        <label style="width: 8%; margin-left: 20px;" for="">Bono transporte</label>
+        <input class="agregar" style="width: 100px;" id="btransporte" name="btransporte">
+        <br>
+        <label style="width: 10%;" for="">Bono adicionales</label>
+        <input class="agregar" style="width: 100px;" id="badc" name="badc">
+        <div>
+          <a type="submit" class="botones" href="{% url 'agregar' %}">Agregar</a>
+        </div>
+      </div>
+    </form>
+      
+      
+  {% endblock contenido1 %}
