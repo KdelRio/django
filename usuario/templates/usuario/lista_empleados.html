@@ -55,7 +55,7 @@
               <td>{{ a.btransporte }}</td>
               <td>{{ a.badc }}</td>
               <td><a href="{% url 'eliminar_empleados' a.rut %}" onclick="return confirm('estas seguro de eliminarlo?');">Eliminar</a></td>
-             <td><a href="./modificar2.html">Modificar</a></td>
+             <td><a href="{% url 'modificar_empleado' a.rut %}">Modificar</a></td>
             </tr>
 
             {% endfor %}

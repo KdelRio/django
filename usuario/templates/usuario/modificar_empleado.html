@@ -4,7 +4,7 @@
 
 {% block contenido2 %}
 
-<title>Agregar Empleados</title>
+<title>Modificar Empleados</title>
 
   {% endblock contenido2 %}
   
@@ -22,34 +22,31 @@
         <form action="" method="POST">
           {% csrf_token %}
         <label style="width: 10%;" for="">Nombre</label>
-        <input id="nombre" name="nombre">
+        <input id="nombre" name="nombre" value="{{ empleado.nombre }}">
         <label for="">Apellido</label>
-        <input id="apellido" name="apellido">
+        <input id="apellido" name="apellido" value="{{ empleado.apellido }}">
         <br><br>
         <label style="width: 10%;" for="">Rut</label>
-        <input id="rut" name="rut">
+        <input id="rut" name="rut" value="{{ empleado.rut }}">
         <label for="">Telefono</label>
-        <input id="telefono" name="telefono">
+        <input id="telefono" name="telefono" value="{{ empleado.telefono }}">
         <br><br>
         <label style="width: 10%;" for="">Sueldo bruto</label>
-        <input id="sbruto" name="sbruto">
+        <input id="sbruto" name="sbruto" value="{{ empleado.sbruto }}">
         <label for="">Prevision</label>
-        <input id="prevision" name="prevision">
+        <input id="prevision" name="prevision" value="{{ empleado.prevision }}">
         <br><br>
         <label style="width: 10%;" for="">Imposiciones</label>
-        <input id="imposiciones" name="imposiciones">
+        <input id="imposiciones" name="imposiciones" value="{{ empleado.imposiciones }}">
         <label for="">Bono transporte</label>
-        <input id="btransporte" name="btransporte">
+        <input id="btransporte" name="btransporte" value="{{ empleado.btransporte }}">
         <br>
         <label style="width: 10%;" for="">Bonos adicionales</label>
-        <input id="badc" name="badc">
+        <input id="badc" name="badc" value="{{ empleado.badc }}">
         <br><br>
         <div>
-          <input class="botones" type="submit" name="btnadd" id="btnadd" value="Guardar">
+          <input style="width: 100px;" class="botones" type="submit" name="btnadd" id="btnadd" value="Modificar">
         </div>
       </form>
       </div>
-
-      
-      
-  {% endblock contenido1 %}
+      {% endblock contenido1 %}
