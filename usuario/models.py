@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils import timezone
+from django.dispatch import receiver
+from allauth.account.signals import user_signed_up
 
 class Empleado(models.Model):
     nombre = models.CharField(max_length=50)
@@ -27,3 +29,7 @@ class Usuario(models.Model):
     correoU = models.CharField(max_length=12, primary_key=True)
     contraseñaU = models.CharField(max_length=50)
     telefonoU = models.IntegerField()
+
+def create_user_profile(request, user, **kwargs):
+    profile = Profile.objects.create(user=user)
+    profile.save()

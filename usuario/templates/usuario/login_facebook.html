@@ -1,7 +1,6 @@
 {%  extends 'usuario/plantilla.html'  %}
-{% load socialaccount %}
 {% load static %}
-
+{% load socialaccount %}
 {% block contenido2 %}
 
 <title>Login</title>
@@ -22,6 +21,12 @@
                     <input class="controles" type="password" name="contraseñaU" id="contraseñaU" minlength="6" placeholder="Ingrese su Contraseña">
                     <p>¿No tienes Cuenta?<a href="{% url 'registro' %}"> Registrarse</a></p>
                     <input class="botones" id="ingresar" type="submit" value="Ingresar">
+                    <br><br>
+                    <a class="btn btn-primary btn-block" href="{% provider_login_url "facebook" method="oauth2" %}">
+                        <span class="fab fa-facebook"></span>
+                           Login with facebook
+                    </a>
+                    
             </form>
         </section>
     </body>

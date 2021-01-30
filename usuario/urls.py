@@ -14,5 +14,6 @@ urlpatterns = [
     path('eliminar_empleado/<rut>/', eliminar_empleado, name='eliminar_empleados'),
     path('modificar_empleado/<rut>/', modificar_empleado, name='modificar_empleado'),
     path('login/',LoginView.as_view(template_name='usuario/login.html'), name="InicioSesion"),
+    path('login_facebook/',LoginView.as_view(template_name='usuario/login_facebook.html'), name="InicioFacebook"),
     path('logout/',LogoutView.as_view(template_name='usuario/inicio.html'),name="Logout"),
 ]
