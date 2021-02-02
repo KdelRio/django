@@ -84,7 +84,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'remroll.wsgi.application'
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'posts/static/js', 'serviceworker.js')
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -137,7 +139,7 @@ STATIC_URL = '/static/'
 # Si se conecta correctamente se va a url 'lista'
 LOGIN_REDIRECT_URL='lista'
 
-PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'posts/static/js', 'serviceworker.js')
+
 # La vista que hara el control del acceso
 LOGIN_URL='InicioSesion'
 
