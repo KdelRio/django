@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -48,6 +49,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
+    'pwa'
 ]
 
 SITE_ID = 1
@@ -135,6 +137,7 @@ STATIC_URL = '/static/'
 # Si se conecta correctamente se va a url 'lista'
 LOGIN_REDIRECT_URL='lista'
 
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'posts/static/js', 'serviceworker.js')
 # La vista que hara el control del acceso
 LOGIN_URL='InicioSesion'
 
