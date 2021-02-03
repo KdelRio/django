@@ -6,10 +6,10 @@
 
 <title>Perfil</title>
 
-  {% endblock contenido2 %}
+{% endblock contenido2 %}
   
   
-  {% block contenido1 %}
+{% block contenido1 %}
   
   <body style="background-image: url({% static 'usuario/imagen/fondo-login.jpg' %});background-size: 100%;">
     <div id="wrapper" style="margin-top: 70px;">
@@ -29,24 +29,24 @@
             <tr>
                 <th>Nombre Completo</th>
                 <th>Contraseña actual</th>
-                <th >Rut</th>
                 <th>Correo electronico</th>
                 <th>Celular/telefono</th>
                 <th>Tipo de cuenta</th>
                 
                 <th ></th>
               </tr>
-              <tr>
-                <td class="nombre">Kevin Del Rio</td>
-                <td>*************</td>
-                <td class="nombre">12345678-9</td>
-                <td>kdelriom@gmail.com</td>
-                <td>9 4948 4814</td>
-                <td>Administrador</td>
-                <td><a href="./datos.html">Modificar</a></td>
-
+              {% for u in usuario %}
+                <tr>
+                  <td class="nombre">{{u.nombreU}} {{u.apellidoU}}</td>
+                  <td>{{u.contraseñaU }}</td>
+                  <td class="nombre">{{u.correoU}}</td>
+                  <td>{{u.telefonoU}}</td>
+                  <td>Administrador</td>
+                  <td><a href="{% url 'modificar_usuario' u.correoU %}">Modificar</a></td>
               </tr>
+              {% endfor %}
+              
             </div>      
           </table>
         </div>
-        {% endblock contenido1 %}
+{% endblock contenido1 %}

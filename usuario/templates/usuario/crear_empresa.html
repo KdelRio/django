@@ -4,7 +4,7 @@
 
 {% block contenido2 %}
 
-<title>Crear Usuario</title>
+<title>Crear Empresa</title>
 
   {% endblock contenido2 %}
   
@@ -21,12 +21,11 @@
            <a href="{% url 'inicio' %}">Cerrar Sesion</a>
          </div>
       </div>
-        <form id="creationform" method="get" action="./crearusuario2.html">
-        <div > 
+          <div > 
           <br>
           <h1 style="margin-left: 150px;"> Crear Usuario Empresa-Cliente </h1>
 
-         <table style="margin-top: 100px;">
+         <table style="margin-top: 100px; width: 90%;">
             <tr>
                 <th>Nombre Completo</th>
                 <th>Contraseña</th>
@@ -36,6 +35,7 @@
                 <th>Tipo de cuenta</th>
                 <th>Accion</th>
             </tr>
+            <form method="POST" action="">
               <tr>
                 <td><input style="width: 120px;" class="agregar" id="nombreE" name="nombreE" placeholder="ingrese nombre"></td>
                 <td><input class="agregar" type="password" name="contraseñaE" id="contraseñaE" placeholder="ingrese contraseña"></td>
@@ -45,8 +45,9 @@
                 <td><input class="agregar" name="tipocuenta" id="tipocuenta" placeholder="ingrese tipo cuenta"></td>
                 <td><input class="botonadd" id="crearusuario" type="submit" value="Confirmar"></td>
             </tr>
+          </form>
             </div>      
           </table>
         </div>
-    </form>
+    
     {% endblock contenido1 %}

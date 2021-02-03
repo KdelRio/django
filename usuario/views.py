@@ -14,9 +14,31 @@ def lista(request):
     })
 
 def perfil(request):
-    return render(request, 'usuario/perfil.html', {})
+
+    usuario = Usuario.objects.all()
+
+    return render(request, 'usuario/perfil.html', {
+        'usuario':usuario
+    })
 
 def crear_usuario(request):
+    
+    if request.POST:
+
+        empresa = Empresa_cliente()
+        empresa.rutE = request.POST.get('rutE')
+        empresa.nombreE = request.POST.get('nombreE')
+        empresa.contraseñaE = request.POST.get('contraseñaE')
+        empresa.correoE = request.POST.get('correoE')
+        empresa.telefonoE = request.POST.get('telefonoE')
+        empresa.tipo_cuenta = request.POST.get('tipo_cuenta')
+
+        try:
+            empresa.save()
+        except:
+            mensaje = "No se ha podido agregar"
+        return redirect('crear_usuario')
+
     return render(request, 'usuario/crear_usuario.html', {})
 
 def login(request):
@@ -39,12 +61,28 @@ def agregar(request):
         try:
             empleado.save()
         except:
-            mensaje = "No se ha podido eliminar"
+            mensaje = "No se ha podido agregar"
         return redirect('lista')
 
     return render(request, 'usuario/agregar.html', {})
 
 def registro(request):
+
+    if request.POST:
+        usuario = Usuario.objects.all()
+        usuario.delete()
+        usuario = Usuario()
+        usuario.nombreU = request.POST.get('nombreU')
+        usuario.apellidoU = request.POST.get('apellidoU')
+        usuario.correoU = request.POST.get('correoU')
+        usuario.contraseñaU = request.POST.get('contraseñaU')
+        usuario.telefonoU = request.POST.get('telefonoU')
+        try:
+            usuario.save()
+        except:
+            mensaje = "No se ha podido registrar"
+        return redirect('perfil')
+
     return render(request, 'usuario/registro.html', {})
 
 def eliminar_empleado(request,rut):
@@ -79,7 +117,30 @@ def modificar_empleado(request,rut):
         try:
             empleado.save()
         except:
-            mensaje = "No se ha podido eliminar"
+            mensaje = "No se ha podido modificar"
         return redirect('lista')
 
     return render(request, 'usuario/modificar_empleado.html', variables)
+
+def modificar_usuario(request,correoU):
+
+    usuario = Usuario.objects.get(correoU=correoU)
+    variables = {
+        'usuario':usuario
+    }
+
+    if request.POST:
+        usuario = Usuario()
+        usuario.nombreU = request.POST.get('nombreU')
+        usuario.apellidoU = request.POST.get('apellidoU')
+        usuario.correoU = request.POST.get('correoU')
+        usuario.contraseñaU = request.POST.get('contraseñaU')
+        usuario.telefonoU = request.POST.get('telefonoU')
+
+        try:
+            usuario.save()
+        except:
+            mensaje = "No se ha podido modificar"
+        return redirect('perfil')
+
+    return render(request, 'usuario/modificar_usuario.html', variables)

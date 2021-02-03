@@ -17,7 +17,6 @@ class Empleado(models.Model):
 class Empresa_cliente(models.Model):
     rutE = models.CharField(max_length=12, primary_key=True)
     nombreE = models.CharField(max_length=50)
-    apellidoE = models.CharField(max_length=50)
     contraseñaE = models.CharField(max_length=50)
     correoE = models.CharField(max_length=50)
     telefonoE = models.IntegerField()

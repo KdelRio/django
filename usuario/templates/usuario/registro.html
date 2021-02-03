@@ -13,7 +13,8 @@
 
   <body style="background-image: url({% static 'usuario/imagen/fondo-login.jpg' %});background-size: 100%;">
     <section class="formulario-login">
-        <form class="form-group" id="register-form" method="get" action="{% url 'InicioSesion' %}">
+        <form class="form-group" method="POST" action="">
+          {% csrf_token %}
                 <h4>Registro de Usuario</h4>
                 <label for="nombres">Nombre</label>
                 <input class="controles" name="nombreU" id="nombreU" placeholder="Ingrese su Nombre">
@@ -24,14 +25,12 @@
                 <label for="correo">Correo</label>
                 <input class="controles" name="correoU" id="correoU" placeholder="Ingrese su Correo">
                 <br><br>
-                <label for="telefono">Telefono</label>
-                <input class="controles" name="telefonoU" id="telefonoU" placeholder="Ingrese su Telefono">
-                <br><br>
                 <label for="contraseña">Contraseña</label>
                 <input class="controles" type="password" name="contraseñaU" id="contraseñaU" placeholder="Ingrese su Contraseña">
                 <br><br>
-                <input type="checkbox" name="tyc" id="tyc" required>
-                <label for="tyc"><a href="">Aceptar Terminos y condiciones</a></label>
+                <label for="telefono">Telefono</label>
+                <input class="controles" name="telefonoU" id="telefonoU" placeholder="Ingrese su Telefono">
+                <br><br>
                 <input class="botones" id="registrarse" type="submit" value="Registrarse">
         </form>
     </section>
