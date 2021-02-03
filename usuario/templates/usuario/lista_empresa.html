@@ -15,8 +15,8 @@
       <div id="first">
          <div class="vertical-menu">
            <a href="{% url 'perfil' %}">Perfil</a>
-           <a href="{% url 'lista' %}" class="active">Administrar Empleados</a>
-           <a href="{% url 'lista_empresa' %}">Crear usuario</a>
+           <a href="{% url 'lista' %}" >Administrar Empleados</a>
+           <a href="{% url 'lista_empresa' %}" class="active">Administrar Empresas</a>
            <a href="{% url 'inicio' %}">Cerrar Sesion</a>
          </div>
       </div>
@@ -50,13 +50,13 @@
               <td>{{ em.correoE }}</td>
               <td>{{ em.telefonoE }}</td>
               <td>{{ em.tipocuenta }}</td>
-              <td><a href="{% url 'eliminar_empleados' a.rut %}" onclick="return confirm('estas seguro de eliminarlo?');">Eliminar</a></td>
-             <td><a href="{% url 'modificar_empleado' a.rut %}">Modificar</a></td>
+              <td><a href="{% url 'eliminar_empresa' em.rutE %}" onclick="return confirm('estas seguro de eliminarlo?');">Eliminar</a></td>
+              <td><a href="{% url 'modificar_empresa' em.rutE %}">Modificar</a></td>
             </tr>
 
             {% endfor %}
        </table>
        <br><br>
-       <a class="botones" href="{% url 'agregar' %}">Agregar</a>
+       <a class="botones" href="{% url 'crear_empresa' %}">Agregar</a>
         </body>
         {% endblock contenido1 %}

@@ -39,13 +39,13 @@ def crear_empresa(request):
         empresa.contraseñaE = request.POST.get('contraseñaE')
         empresa.correoE = request.POST.get('correoE')
         empresa.telefonoE = request.POST.get('telefonoE')
-        empresa.tipo_cuenta = request.POST.get('tipo_cuenta')
+        empresa.tipocuenta = request.POST.get('tipocuenta')
 
         try:
             empresa.save()
         except:
             mensaje = "No se ha podido agregar"
-        return redirect('crear_empresa')
+        return redirect('lista_empresa')
 
     return render(request, 'usuario/crear_empresa.html', {})
 
@@ -154,3 +154,37 @@ def modificar_usuario(request,correoU):
         return redirect('perfil')
 
     return render(request, 'usuario/modificar_usuario.html', variables)
+
+def modificar_empresa(request,rutE):
+
+    empresa = Empresa_cliente.objects.get(rutE=rutE)
+    variables = {
+        'empresa':empresa
+    }
+
+    if request.POST:
+        empresa = Empresa_cliente()
+        empresa.nombreE = request.POST.get('nombreE')
+        empresa.contraseñaE = request.POST.get('contraseñaE')
+        empresa.rutE = request.POST.get('rutE')
+        empresa.correoE = request.POST.get('correoE')
+        empresa.telefonoE = request.POST.get('telefonoE')
+        empresa.tipocuenta = request.POST.get('tipocuenta')
+
+        try:
+            empresa.save()
+        except:
+            mensaje = "No se ha podido modificar"
+        return redirect('lista_empresa')
+
+    return render(request, 'usuario/modificar_empresa.html', variables)
+
+def eliminar_empresa(request,rutE):
+
+    empresa = Empresa_cliente.objects.get(rutE=rutE)
+
+    try:
+        empresa.delete()
+    except:
+        mensaje = "No se ha podido eliminar"
+    return redirect('lista_empresa')

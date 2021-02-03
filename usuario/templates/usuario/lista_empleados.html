@@ -16,7 +16,7 @@
          <div class="vertical-menu">
            <a href="{% url 'perfil' %}">Perfil</a>
            <a href="{% url 'lista' %}" class="active">Administrar Empleados</a>
-           <a href="{% url 'lista_empresa' %}">Crear Empresa</a>
+           <a href="{% url 'lista_empresa' %}">Administrar Empresas</a>
            <a href="{% url 'inicio' %}">Cerrar Sesion</a>
          </div>
       </div>
@@ -33,11 +33,13 @@
          <table>
          <tr>
              <th>Nombre</th>
-             <th>Contraseña</th>
-             <th>Rut</th>
-             <th>Correo</th>
              <th>Telefono</th>
-             <th>Tipo de cuenta</th>
+             <th>Rut</th>
+             <th>Sueldo bruto</th>
+             <th>Prevision</th>
+             <th>Imposiciones</th>
+             <th>Bono transporte</th>
+             <th>Bonos adicionales</th>
              <th colspan="2">Accion</th>
            </tr>
 

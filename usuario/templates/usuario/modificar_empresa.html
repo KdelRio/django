@@ -1,0 +1,44 @@
+{%  extends 'usuario/plantilla.html'  %}
+
+{% load static %}
+
+{% block contenido2 %}
+
+<title>Modificar Empleados</title>
+
+  {% endblock contenido2 %}
+  
+  
+  {% block contenido1 %}
+  <body style="background-image: url({% static 'usuario/imagen/fondo-login.jpg' %});background-size: 100%;">
+    <div id="wrapper" style="margin-top: 70px;">
+      <div class="vertical-menu" id="first">
+       <a href="{% url 'perfil' %}">Perfil</a>
+       <a href="{% url 'lista' %}" >Administrar Empleados</a>
+       <a href="{% url 'lista_empresa' %} "class="active">Administrar Empresas</a>
+       <a href="{% url 'inicio' %}">Cerrar Sesion</a>
+      </div>
+      <div id="second" style="margin-top: 30px;">
+        <form action="" method="POST">
+          {% csrf_token %}
+        <label style="width: 10%;" for="">Nombre</label>
+        <input id="nombreE" name="nombreE" value="{{ empresa.nombreE }}">
+        <label for="">Contraseña</label>
+        <input id="contraseñaE" name="contraseñaE" value="{{ empresa.contraseñaE }}">
+        <br><br>
+        <label style="width: 10%;" for="">Rut</label>
+        <input id="rutE" name="rutE" value="{{ empresa.rutE }}">
+        <label for="">Correo Electronico</label>
+        <input id="correoE" name="correoE" value="{{ empresa.correoE }}">
+        <br><br>
+        <label style="width: 10%;" for="">Telefono</label>
+        <input id="telefonoE" name="telefonoE" value="{{ empresa.telefonoE }}">
+        <label for="">Tipo de Cuenta</label>
+        <input id="tipocuenta" name="tipocuenta" value="{{ empresa.tipocuenta }}">
+        <br><br>
+        <div>
+          <input style="width: 100px;" class="botones" type="submit" name="btnadd" id="btnadde" value="Modificar">
+        </div>
+      </form>
+      </div>
+      {% endblock contenido1 %}

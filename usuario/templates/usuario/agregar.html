@@ -15,40 +15,43 @@
       <div class="vertical-menu" id="first">
        <a href="{% url 'perfil' %}">Perfil</a>
        <a href="{% url 'lista' %}" class="active">Administrar Empleados</a>
-       <a href="{% url 'lista_empresa' %}">Crear usuario</a>
+       <a href="{% url 'lista_empresa' %}">Administrar Empresas</a>
        <a href="{% url 'inicio' %}">Cerrar Sesion</a>
       </div>
-      <div id="second" style="margin-top: 30px;">
-        <form action="" method="POST">
-          {% csrf_token %}
-        <label style="width: 10%;" for="">Nombre</label>
-        <input id="nombre" name="nombre">
-        <label for="">Apellido</label>
-        <input id="apellido" name="apellido">
-        <br><br>
-        <label style="width: 10%;" for="">Rut</label>
-        <input id="rut" name="rut">
-        <label for="">Telefono</label>
-        <input id="telefono" name="telefono">
-        <br><br>
-        <label style="width: 10%;" for="">Sueldo bruto</label>
-        <input id="sbruto" name="sbruto">
-        <label for="">Prevision</label>
-        <input id="prevision" name="prevision">
-        <br><br>
-        <label style="width: 10%;" for="">Imposiciones</label>
-        <input id="imposiciones" name="imposiciones">
-        <label for="">Bono transporte</label>
-        <input id="btransporte" name="btransporte">
+      <div id="second" > 
         <br>
-        <label style="width: 10%;" for="">Bonos adicionales</label>
-        <input id="badc" name="badc">
-        <br><br>
-        <div>
-          <input class="botones" type="submit" name="btnadd" id="btnadd" value="Guardar">
-        </div>
-      </form>
-      </div>
+        <h1 style="margin-left: 150px;"> Agregar un Nuevo Empleado </h1>
+
+       <table style="margin-top: 100px; width: 90%;">
+          <tr>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Telefono</th>
+              <th>Rut</th>
+              <th>Sueldo Bruto</th>
+              <th>Prevision</th>
+              <th>Imposiciones</th>
+              <th>Bono Transporte</th>
+              <th>Bonos Adicionales</th>
+              <th>Accion</th>
+          </tr>
+          <form method="POST" action="">
+            {% csrf_token %}
+            <tr>
+              <td><input style="width: 120px;" class="agregar" id="nombre" name="nombre" placeholder="ingrese nombre"></td>
+              <td><input class="agregar" name="apellido" id="apellido" placeholder="ingrese apellido"></td>
+              <td><input class="agregar" name="telefono" id="telefono" placeholder="ingrese telefono"></td>
+              <td><input class="agregar" name="rut" id="rut" placeholder="ingrese correo"></td>
+              <td><input class="agregar" type="number" name="sbruto" id="sbruto" placeholder="ingrese sueldo bruto"></td>
+              <td><input class="agregar" type="number" name="prevision" id="prevision" placeholder="ingrese prevision"></td>
+              <td><input class="agregar" type="number" name="imposiciones" id="imposiciones" placeholder="ingrese imposiciones"></td>
+              <td><input class="agregar" type="number" name="btransporte" id="btransporte" placeholder="ingrese bono transporte"></td>
+              <td><input class="agregar" type="number" name="badc" id="badc" placeholder="ingrese bonos adicionales"></td>
+              <td><input class="botonadd"  id="crearempleado" type="submit" value="Confirmar"></td>
+            </tr>
+          </form>
+        </table>
+      </div>      
 
       
       
