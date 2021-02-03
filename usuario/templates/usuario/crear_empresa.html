@@ -17,17 +17,17 @@
          <div class="vertical-menu">
            <a href="{% url 'perfil' %}">Perfil</a>
            <a href="{% url 'lista' %}" >Administrar Empleados</a>
-           <a href="{% url 'crear_usuario' %}" class="active">Crear usuario</a>
+           <a href="{% url 'lista_empresa' %}" class="active">Crear usuario</a>
            <a href="{% url 'inicio' %}">Cerrar Sesion</a>
          </div>
       </div>
-          <div > 
+        <div id="second" > 
           <br>
           <h1 style="margin-left: 150px;"> Crear Usuario Empresa-Cliente </h1>
 
          <table style="margin-top: 100px; width: 90%;">
             <tr>
-                <th>Nombre Completo</th>
+                <th>Nombre</th>
                 <th>Contraseña</th>
                 <th>Rut</th>
                 <th>Correo electronico</th>
@@ -36,6 +36,7 @@
                 <th>Accion</th>
             </tr>
             <form method="POST" action="">
+              {% csrf_token %}
               <tr>
                 <td><input style="width: 120px;" class="agregar" id="nombreE" name="nombreE" placeholder="ingrese nombre"></td>
                 <td><input class="agregar" type="password" name="contraseñaE" id="contraseñaE" placeholder="ingrese contraseña"></td>
@@ -44,10 +45,8 @@
                 <td><input class="agregar" type="number" name="telefonoE" id="telefonoE" placeholder="ingrese telefono"></td>
                 <td><input class="agregar" name="tipocuenta" id="tipocuenta" placeholder="ingrese tipo cuenta"></td>
                 <td><input class="botonadd" id="crearusuario" type="submit" value="Confirmar"></td>
-            </tr>
-          </form>
-            </div>      
+              </tr>
+            </form>
           </table>
-        </div>
-    
+        </div>      
     {% endblock contenido1 %}

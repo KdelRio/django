@@ -20,7 +20,7 @@ class Empresa_cliente(models.Model):
     contraseñaE = models.CharField(max_length=50)
     correoE = models.CharField(max_length=50)
     telefonoE = models.IntegerField()
-    tipo_cuenta = models.CharField(max_length=50)
+    tipocuenta = models.CharField(max_length=50)
 
 class Usuario(models.Model):
     nombreU = models.CharField(max_length=50)

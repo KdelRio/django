@@ -21,7 +21,15 @@ def perfil(request):
         'usuario':usuario
     })
 
-def crear_usuario(request):
+def lista_empresa(request):
+
+    empresa = Empresa_cliente.objects.all()
+
+    return render(request, 'usuario/lista_empresa.html', {
+        'empresa':empresa
+    })
+
+def crear_empresa(request):
     
     if request.POST:
 
@@ -37,9 +45,11 @@ def crear_usuario(request):
             empresa.save()
         except:
             mensaje = "No se ha podido agregar"
-        return redirect('crear_usuario')
+        return redirect('crear_empresa')
 
-    return render(request, 'usuario/crear_usuario.html', {})
+    return render(request, 'usuario/crear_empresa.html', {})
+
+
 
 def login(request):
     return render(request, 'usuario/login.html', {})

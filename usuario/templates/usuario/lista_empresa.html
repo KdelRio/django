@@ -4,7 +4,7 @@
 
 {% block contenido2 %}
 
-<title>Lista Empleados</title>
+<title>Lista Empresa</title>
 
   {% endblock contenido2 %}
   
@@ -16,7 +16,7 @@
          <div class="vertical-menu">
            <a href="{% url 'perfil' %}">Perfil</a>
            <a href="{% url 'lista' %}" class="active">Administrar Empleados</a>
-           <a href="{% url 'lista_empresa' %}">Crear Empresa</a>
+           <a href="{% url 'lista_empresa' %}">Crear usuario</a>
            <a href="{% url 'inicio' %}">Cerrar Sesion</a>
          </div>
       </div>
@@ -32,26 +32,24 @@
          </div>
          <table>
          <tr>
-             <th>Nombre</th>
-             <th>Contraseña</th>
-             <th>Rut</th>
-             <th>Correo</th>
-             <th>Telefono</th>
-             <th>Tipo de cuenta</th>
-             <th colspan="2">Accion</th>
+            <th>Nombre</th>
+            <th>Contraseña</th>
+            <th>Rut</th>
+            <th>Correo electronico</th>
+            <th>Celular/telefono</th>
+            <th>Tipo de cuenta</th>
+            <th colspan="2">Accion</th>
            </tr>
 
-            {% for a in empleado %}
+            {% for em in empresa %}
 
             <tr>
-              <td>{{ a.nombre }} {{ a.apellido }}</td>
-              <td>{{ a.telefono }}</td>
-              <td>{{ a.rut }}</td>
-              <td>{{ a.sbruto }}</td>
-              <td>{{ a.prevision }}</td>
-              <td>{{ a.imposiciones }}</td>
-              <td>{{ a.btransporte }}</td>
-              <td>{{ a.badc }}</td>
+              <td>{{ em.nombreE }}</td>
+              <td>{{ em.contraseñaE }}</td>
+              <td>{{ em.rutE }}</td>
+              <td>{{ em.correoE }}</td>
+              <td>{{ em.telefonoE }}</td>
+              <td>{{ em.tipocuenta }}</td>
               <td><a href="{% url 'eliminar_empleados' a.rut %}" onclick="return confirm('estas seguro de eliminarlo?');">Eliminar</a></td>
              <td><a href="{% url 'modificar_empleado' a.rut %}">Modificar</a></td>
             </tr>
